@@ -1,0 +1,241 @@
+$dark: #16213e;
+$light: #f2f2f2;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: Poppins;
+}
+
+body {
+    background: rgb(82, 151, 216);
+}
+
+.nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+
+    height: 100%;
+    width: 80px;
+    padding: 10px 15px;
+
+    background: $dark;
+    transition: all 0.5s ease;
+
+    &.active {
+        width: 250px;
+
+        .nav__logo--name {
+            opacity: 1;
+        }
+
+        #navBtn {
+            left: 90%;
+        }
+
+        .tooltip {
+            display: none;
+        }
+
+        .nav__item--name {
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        ~ main {
+            left: 250px;
+            width: calc(100% - 250px);
+        }
+    }
+
+    &__logo {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        height: 50px;
+        width: 100%;
+
+        color: $light;
+
+        &--name {
+            font-size: 20px;
+            font-weight: 500;
+
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        #navBtn {
+            position: absolute;
+            left: 50%;
+            // top: 5px;
+
+            height: 50px;
+            aspect-ratio: 1;
+
+            font-size: 28px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__list {
+        margin-top: 20px;
+    }
+
+    &__item {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        margin: 2px 0;
+
+        &--name {
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s ease-out;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+
+            color: $light;
+            border-radius: 12px;
+            white-space: nowrap;
+            transition: all 0.2s ease-out;
+
+            &:hover {
+                color: $dark;
+                background: $light;
+            }
+
+            i {
+                height: 50px;
+                aspect-ratio: 1;
+
+                font-size: 20px;
+                line-height: 50px;
+                text-align: center;
+                border-radius: 12px;
+            }
+        }
+
+        &:hover .tooltip {
+            top: 50%;
+            opacity: 1;
+        }
+
+        // .tooltip {
+        //     position: absolute;
+        //     left: 115px;
+        //     top: 0;
+        //     transform: translate(-50%, -50%);
+
+        //     height: 35px;
+        //     width: auto;
+        //     padding-inline: 0.5em;
+
+        //     background: $light;
+        //     line-height: 35px;
+        //     text-align: center;
+        //     border-radius: 6px;
+
+        //     opacity: 0;
+        //     pointer-events: none;
+        //     box-shadow: 0 5x 10px rgba(0, 0, 0, 0.2);
+        //     transition: all 0.3s ease-out;
+
+        //     display: block;
+        // }
+    }
+
+    .tooltip {
+        position: absolute;
+        left: 115px;
+        top: 0;
+        transform: translate(-50%, -50%);
+
+        height: 35px;
+        width: auto;
+        padding-inline: 0.5em;
+
+        background: $light;
+        line-height: 35px;
+        text-align: center;
+        border-radius: 6px;
+
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 5x 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-out;
+
+        display: block;
+    }
+
+    .logout {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 15px;
+
+        &__wrap {
+            position: relative;
+            height: 50px;
+            width: 100%;
+
+            &:hover .tooltip {
+                top: 50%;
+                opacity: 1;
+            }
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+
+            color: $light;
+            border-radius: 12px;
+            transition: all 0.2s ease-out;
+
+            &:hover {
+                color: $dark;
+                background: $light;
+            }
+
+            i {
+                height: 50px;
+                aspect-ratio: 1;
+
+                font-size: 20px;
+                line-height: 50px;
+                text-align: center;
+                border-radius: 12px;
+            }
+        }
+    }
+}
+
+main {
+    left: 80px;
+    width: calc(100% - 80px);
+    transition: all 0.5s ease;
+    margin-left: auto;
+    z-index: 10;
+}
+
+section {
+    padding: 2rem;
+}
